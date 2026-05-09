@@ -74,21 +74,26 @@ export default function KuponlarPage() {
   const handleSave = async () => {
     if (!form.code || !form.value) return;
     setSaving(true);
-    const res = await fetch("/api/cms/kuponlar", {
-      method: modal === "new" ? "POST" : "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, maxUses: form.maxUses ? Number(form.maxUses) : null }),
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      alert(err.error ?? "Hata oluştu.");
+    try {
+      const res = await fetch("/api/cms/kuponlar", {
+        method: modal === "new" ? "POST" : "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, maxUses: form.maxUses ? Number(form.maxUses) : null }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error ?? "Hata oluştu.");
+        setSaving(false);
+        return;
+      }
+      fetch_();
       setSaving(false);
-      return;
+      setSaved(true);
+      setTimeout(() => { setSaved(false); close(); }, 900);
+    } catch (e) {
+      alert("Bağlantı hatası: " + e);
+      setSaving(false);
     }
-    await fetch_();
-    setSaving(false);
-    setSaved(true);
-    setTimeout(() => { setSaved(false); close(); }, 900);
   };
 
   const handleDelete = async () => {
