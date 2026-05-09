@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "label": "Anasayfa",
+    "href": "/",
+    "order": 1,
+    "active": true
+  },
+  {
+    "id": 2,
+    "label": "Ürünler",
+    "href": "/urunler",
+    "order": 2,
+    "active": true
+  },
+  {
+    "id": 3,
+    "label": "Kategoriler",
+    "href": "/urunler",
+    "order": 3,
+    "active": true
+  },
+  {
+    "id": 4,
+    "label": "Blog",
+    "href": "/blog",
+    "order": 4,
+    "active": true
+  },
+  {
+    "id": 5,
+    "label": "Hakkımızda",
+    "href": "/hakkimizda",
+    "order": 5,
+    "active": true
+  },
+  {
+    "id": 6,
+    "label": "İletişim",
+    "href": "/iletisim",
+    "order": 7,
+    "active": true
+  }
+]

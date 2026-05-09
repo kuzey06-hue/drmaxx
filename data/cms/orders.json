@@ -1,0 +1,72 @@
+[
+  {
+    "customer": "reha günaydn",
+    "email": "gunaydinreha@gmail.com",
+    "phone": "03126667224",
+    "address": "Zübeyde Hanım Mahallesi, Kazım Karabekir Caddesi No:91/80 Altındağ / ANKARA, ALTINDAĞ/Ankara 06070",
+    "invoiceType": "bireysel",
+    "tcKimlik": "",
+    "items": [
+      {
+        "productId": "4",
+        "productName": "Phospholipid Complex",
+        "quantity": 1,
+        "price": 1199
+      }
+    ],
+    "total": 1199,
+    "status": "Beklemede",
+    "paymentMethod": "PayTR",
+    "kuponKod": null,
+    "indirim": 0,
+    "id": "o1778261822290",
+    "orderNo": "DRM-2026-0003",
+    "date": "2026-05-08"
+  },
+  {
+    "customer": "BEKİR VURGUN",
+    "email": "info@vitrayreklam.com",
+    "phone": "03126667224",
+    "address": "Zübeyde Hanım Mahallesi, Kazım Karabekir Caddesi No:91/80 Altındağ / ANKARA, ALTINDAĞ/Ankara 06070",
+    "invoiceType": "kurumsal",
+    "vergiNo": "12901086816",
+    "vergiDairesi": "kızılbey",
+    "firmaAdi": "Vitray Reklam",
+    "items": [
+      {
+        "productId": "3",
+        "productName": "NeuroDrops",
+        "quantity": 1,
+        "price": 999
+      }
+    ],
+    "total": 999,
+    "status": "Beklemede",
+    "paymentMethod": "PayTR",
+    "id": "o1778232322838",
+    "orderNo": "DRM-2026-0002",
+    "date": "2026-05-08"
+  },
+  {
+    "customer": "BEKİR VURGUN",
+    "email": "info@vitrayreklam.com",
+    "phone": "03126667224",
+    "address": "Zübeyde Hanım Mahallesi, Kazım Karabekir Caddesi No:91/80 Altındağ / ANKARA, ALTINDAĞ/Ankara 06070",
+    "invoiceType": "bireysel",
+    "tcKimlik": "12901086816",
+    "items": [
+      {
+        "productId": "1",
+        "productName": "Sitikolin Plus+",
+        "quantity": 1,
+        "price": 1299
+      }
+    ],
+    "total": 1299,
+    "status": "Beklemede",
+    "paymentMethod": "PayTR",
+    "id": "o1778227146906",
+    "orderNo": "DRM-2026-0001",
+    "date": "2026-05-08"
+  }
+]

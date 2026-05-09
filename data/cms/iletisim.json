@@ -1,0 +1,26 @@
+{
+  "address": "Maslak Mah. Büyükdere Cad. No:123 Sarıyer / İstanbul",
+  "phone": "0850 309 9489",
+  "email": "info@drmaxx.com.tr",
+  "whatsapp": "05001234567",
+  "workingHours": {
+    "weekdays": { "open": "09:00", "close": "18:00" },
+    "saturday": { "open": "10:00", "close": "15:00", "closed": false },
+    "sunday": { "closed": true }
+  },
+  "mapEmbedUrl": "",
+  "social": {
+    "instagram": "https://instagram.com/drmaxx",
+    "facebook": "",
+    "twitter": "",
+    "youtube": "",
+    "linkedin": ""
+  },
+  "form": {
+    "active": true,
+    "title": "Bize Ulaşın",
+    "notificationEmail": "info@drmaxx.com.tr",
+    "autoReply": false,
+    "autoReplyText": ""
+  }
+}

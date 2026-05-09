@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "drmax",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "-p", "4001"],
+      "cwd": "C:\claude\drmax",
+      "port": 4001
+    }
+  ]
+}
