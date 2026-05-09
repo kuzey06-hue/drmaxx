@@ -1,11 +1,46 @@
 import { products as baseProducts, Product } from "@/data/products";
-import fs from "fs/promises";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 
-const CMS_FILE = path.join(process.cwd(), "data", "cms", "products.json");
+// ── Supabase'den ürünleri al ───────────────────────────────────────
+async function fetchFromSupabase(): Promise<Product[]> {
+  try {
+    const { data, error } = await supabase
+      .from("products")
+      .select("*")
+      .eq("active", true)
+      .order("created_at");
+
+    if (error || !data || data.length === 0) return [];
+
+    return data.map((row) => {
+      const base = baseProducts.find((p) => p.slug === row.slug);
+      return {
+        ...(base ?? {}),
+        id: String(row.id),
+        name: row.name,
+        slug: row.slug,
+        price: row.price ?? base?.price ?? 0,
+        originalPrice: row.original_price ?? undefined,
+        stock: row.stock ?? 0,
+        quantity: row.quantity ?? base?.quantity ?? "",
+        category: row.category ?? base?.category ?? "",
+        badge: (row.badge as Product["badge"]) ?? base?.badge,
+        color: row.color ?? base?.color ?? "#F97316",
+        description: row.description ?? base?.description ?? "",
+        rating: row.rating ?? base?.rating ?? 5,
+        reviewCount: row.review_count ?? base?.reviewCount ?? 0,
+        image: row.image ?? base?.image,
+        active: row.active,
+      } as Product;
+    });
+  } catch {
+    return [];
+  }
+}
+
+// ── WordPress API (ikinci öncelik) ────────────────────────────────
 const WP_API = process.env.WP_API_URL ?? "";
 
-// ── WordPress API ──────────────────────────────────────────────────
 interface WPProduct {
   id: number;
   slug: string;
@@ -30,9 +65,7 @@ async function fetchFromWP(): Promise<Product[]> {
       { next: { revalidate: 0 } }
     );
     if (!res.ok) throw new Error("WP API error");
-
     const items: WPProduct[] = await res.json();
-
     return items
       .filter((item) => item.acf?.aktif !== false)
       .map((item) => {
@@ -43,9 +76,7 @@ async function fetchFromWP(): Promise<Product[]> {
           name: item.title.rendered,
           slug: item.slug,
           price: item.acf.fiyat ?? base?.price ?? 0,
-          originalPrice: item.acf.indirimli_fiyat
-            ? Number(item.acf.indirimli_fiyat)
-            : undefined,
+          originalPrice: item.acf.indirimli_fiyat ? Number(item.acf.indirimli_fiyat) : undefined,
           stock: item.acf.stok ?? 0,
           quantity: item.acf.miktar ?? base?.quantity ?? "",
           category: item.acf.kategori ?? base?.category ?? "",
@@ -62,32 +93,20 @@ async function fetchFromWP(): Promise<Product[]> {
   }
 }
 
-// ── JSON CMS (fallback) ────────────────────────────────────────────
-async function readCms(): Promise<Record<string, Record<string, unknown>>> {
-  try {
-    const raw = JSON.parse(
-      await fs.readFile(CMS_FILE, "utf-8")
-    ) as Array<{ id: string; [key: string]: unknown }>;
-    const map: Record<string, Record<string, unknown>> = {};
-    raw.forEach((p) => { map[p.id] = p; });
-    return map;
-  } catch {
-    return {};
-  }
-}
-
 // ── Ana fonksiyonlar ───────────────────────────────────────────────
 export async function getMergedProducts(): Promise<Product[]> {
-  // WordPress API varsa oradan al, yoksa JSON CMS'e dön
+  // 1. Supabase (öncelik)
+  const sbProducts = await fetchFromSupabase();
+  if (sbProducts.length > 0) return sbProducts;
+
+  // 2. WordPress API
   if (WP_API) {
     const wpProducts = await fetchFromWP();
     if (wpProducts.length > 0) return wpProducts;
   }
 
-  const cmsMap = await readCms();
-  return baseProducts
-    .map((p) => ({ ...p, ...(cmsMap[p.id] ?? {}) } as Product))
-    .filter((p) => (cmsMap[p.id]?.active as boolean | undefined) !== false);
+  // 3. Statik fallback
+  return baseProducts;
 }
 
 export async function getMergedProduct(slug: string): Promise<Product | undefined> {

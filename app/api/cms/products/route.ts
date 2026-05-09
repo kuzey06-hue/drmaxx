@@ -1,32 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
-
-const FILE = path.join(process.cwd(), "data", "cms", "products.json");
-
-async function read() {
-  try { return JSON.parse(await fs.readFile(FILE, "utf-8")); }
-  catch { return []; }
-}
-async function write(data: unknown) {
-  try { await fs.writeFile(FILE, JSON.stringify(data, null, 2), "utf-8"); }
-  catch { /* Vercel read-only filesystem — ignore */ }
-}
+import { supabase } from "@/lib/supabase";
 
 // GET /api/cms/products
 export async function GET() {
-  const products = await read();
-  return NextResponse.json(products);
+  const { data, error } = await supabase.from("products").select("*").order("created_at");
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data);
 }
 
-// POST /api/cms/products — yeni ürün oluştur
+// POST /api/cms/products — yeni ürün
 export async function POST(req: NextRequest) {
   const body = await req.json();
-  const products = await read();
-
   const newProduct = {
     ...body,
-    id: String(Date.now()),
+    id: body.id || String(Date.now()),
     slug: body.slug || body.name.toLowerCase()
       .replace(/ğ/g, "g").replace(/ü/g, "u").replace(/ş/g, "s")
       .replace(/ı/g, "i").replace(/ö/g, "o").replace(/ç/g, "c")
@@ -34,28 +21,26 @@ export async function POST(req: NextRequest) {
     stock: body.stock ?? 0,
     active: body.active ?? true,
     rating: body.rating ?? 5.0,
-    reviewCount: body.reviewCount ?? 0,
+    review_count: body.reviewCount ?? body.review_count ?? 0,
   };
-
-  await write([...products, newProduct]);
-  return NextResponse.json(newProduct, { status: 201 });
+  const { data, error } = await supabase.from("products").insert(newProduct).select().single();
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  return NextResponse.json(data, { status: 201 });
 }
 
 // PUT /api/cms/products — güncelle
 export async function PUT(req: NextRequest) {
   const body = await req.json();
-  const products = await read();
-  const updated = products.map((p: { id: string }) =>
-    p.id === body.id ? { ...p, ...body } : p
-  );
-  await write(updated);
+  const { id, ...rest } = body;
+  const { error } = await supabase.from("products").update(rest).eq("id", id);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
 
 // DELETE /api/cms/products?id=xxx
 export async function DELETE(req: NextRequest) {
   const id = new URL(req.url).searchParams.get("id");
-  const products = await read();
-  await write(products.filter((p: { id: string }) => p.id !== id));
+  const { error } = await supabase.from("products").delete().eq("id", id!);
+  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
