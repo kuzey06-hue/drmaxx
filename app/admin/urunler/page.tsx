@@ -98,11 +98,23 @@ export default function UrunlerPage() {
       ? { ...form }
       : { ...form, id: form.id };
 
-    await fetch("/api/cms/products", {
-      method,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
+    try {
+      const res = await fetch("/api/cms/products", {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        alert(`Hata: ${data.error || res.statusText}`);
+        setSaving(false);
+        return;
+      }
+    } catch (e) {
+      alert(`Bağlantı hatası: ${e}`);
+      setSaving(false);
+      return;
+    }
 
     await fetchProducts();
     setSaving(false);
