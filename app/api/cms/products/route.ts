@@ -42,7 +42,7 @@ function toDb(body: Record<string, unknown>) {
 
 // GET /api/cms/products
 export async function GET() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("products")
     .select("*")
     .order("created_at");

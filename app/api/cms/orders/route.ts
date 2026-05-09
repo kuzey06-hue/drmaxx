@@ -3,7 +3,7 @@ import { supabase, supabaseAdmin } from "@/lib/supabase";
 
 // GET /api/cms/orders
 export async function GET() {
-  const { data, error } = await supabase
+  const { data, error } = await supabaseAdmin
     .from("orders")
     .select("*")
     .order("created_at", { ascending: false });

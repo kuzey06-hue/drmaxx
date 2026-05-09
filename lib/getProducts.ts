@@ -1,10 +1,10 @@
 import { products as baseProducts, Product } from "@/data/products";
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin } from "@/lib/supabase";
 
 // ── Supabase'den ürünleri al ───────────────────────────────────────
 async function fetchFromSupabase(): Promise<Product[]> {
   try {
-    const { data, error } = await supabase
+    const { data, error } = await supabaseAdmin
       .from("products")
       .select("*")
       .eq("active", true)
