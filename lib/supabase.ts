@@ -1,22 +1,44 @@
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const anonKey = (
+const getUrl = () =>
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  process.env.SUPABASE_URL ||
+  "";
+
+const getAnonKey = () =>
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
-)!;
-const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+  process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
+  "";
 
-// Client-side (read-only operations)
-export const supabase = createClient(url, anonKey, {
-  global: {
-    fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
-  },
-});
+const getServiceKey = () =>
+  process.env.SUPABASE_SERVICE_ROLE_KEY || getAnonKey();
 
-// Server-side (write operations — bypasses all RLS and permissions)
-export const supabaseAdmin = createClient(url, serviceKey ?? anonKey, {
+const opts = {
   global: {
-    fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }),
+    fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+      fetch(input, { ...init, cache: "no-store" as RequestCache }),
   },
-});
+};
+
+// Singleton — sadece ilk çağrıda oluşturulur
+let _anon: SupabaseClient | null = null;
+let _admin: SupabaseClient | null = null;
+
+export const getSupabase = () => {
+  if (!_anon) _anon = createClient(getUrl(), getAnonKey(), opts);
+  return _anon;
+};
+
+export const getSupabaseAdmin = () => {
+  if (!_admin) _admin = createClient(getUrl(), getServiceKey(), opts);
+  return _admin;
+};
+
+// Geriye dönük uyumluluk
+export const supabase = {
+  from: (...args: Parameters<SupabaseClient["from"]>) => getSupabase().from(...args),
+} as unknown as SupabaseClient;
+
+export const supabaseAdmin = {
+  from: (...args: Parameters<SupabaseClient["from"]>) => getSupabaseAdmin().from(...args),
+} as unknown as SupabaseClient;
