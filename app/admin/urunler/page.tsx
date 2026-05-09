@@ -63,8 +63,14 @@ export default function UrunlerPage() {
     setLoading(true);
     fetch("/api/cms/products")
       .then(r => r.json())
-      .then(data => { setProducts(data); setLoading(false); })
-      .catch(() => setLoading(false));
+      .then(data => {
+        if (!Array.isArray(data)) {
+          alert("API Hatası: " + JSON.stringify(data).slice(0, 200));
+        }
+        setProducts(Array.isArray(data) ? data : []);
+        setLoading(false);
+      })
+      .catch((e) => { alert("Bağlantı hatası: " + e); setLoading(false); });
   }, []);
 
   useEffect(() => { fetchProducts(); }, [fetchProducts]);
