@@ -59,22 +59,12 @@ export default function UrunlerPage() {
   const [deleteTarget, setDeleteTarget] = useState<Product | null>(null);
   const [deleting, setDeleting] = useState(false);
 
-  const [debugMsg, setDebugMsg] = useState("");
-
   const fetchProducts = useCallback(() => {
     setLoading(true);
-    fetch("/api/cms/products?t=" + Date.now())
+    fetch("/api/cms/products")
       .then(r => r.json())
-      .then(data => {
-        if (!Array.isArray(data)) {
-          setDebugMsg("API yanıtı: " + JSON.stringify(data).slice(0, 200));
-        } else {
-          setDebugMsg(`${data.length} ürün geldi`);
-        }
-        setProducts(Array.isArray(data) ? data : []);
-        setLoading(false);
-      })
-      .catch((e) => { setDebugMsg("Hata: " + e); setLoading(false); });
+      .then(data => { setProducts(Array.isArray(data) ? data : []); setLoading(false); })
+      .catch(() => setLoading(false));
   }, []);
 
   useEffect(() => { fetchProducts(); }, [fetchProducts]);
@@ -162,13 +152,6 @@ export default function UrunlerPage() {
           </button>
         </div>
       </motion.div>
-
-      {/* Debug */}
-      {debugMsg && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-xl px-4 py-2 text-sm text-yellow-800 font-mono">
-          {debugMsg}
-        </div>
-      )}
 
       {/* Search */}
       <motion.div
