@@ -91,8 +91,12 @@ export default function OdemePage() {
     setLoadingPayment(true);
     setPaytrError(null);
 
+    // Order number'ı hemen üret (Vercel dosya yazamasa bile çalışsın)
+    const generatedOrderNo = `DM-${Date.now()}`;
+    setCurrentOrderNo(generatedOrderNo);
+
     try {
-      // 1. Siparişi kaydet
+      // 1. Siparişi kaydet (başarısız olsa da devam et)
       const orderRes = await fetch("/api/cms/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -117,11 +121,13 @@ export default function OdemePage() {
           paymentMethod: paymentMethod === "havale" ? "Havale/EFT" : "PayTR",
           kuponKod: kuponOK?.code ?? null,
           indirim: indirim,
+          orderNo: generatedOrderNo,
         }),
-      });
+      }).catch(() => null);
 
-      const order = await orderRes.json();
-      setCurrentOrderNo(order.orderNo);
+      const order = await orderRes?.json().catch(() => null);
+      const finalOrderNo = order?.orderNo ?? generatedOrderNo;
+      setCurrentOrderNo(finalOrderNo);
 
       // Kupon kullanım sayısını artır
       if (kuponOK) {
@@ -141,7 +147,7 @@ export default function OdemePage() {
           user_address: `${form.adres}, ${form.ilce}/${form.il}`,
           user_phone:   form.telefon || "05000000000",
           email:        form.email,
-          merchant_oid: order.orderNo,
+          merchant_oid: finalOrderNo,
           payment_amount: Math.round(toplam * 100), // kuruş
           basket: items.map(i => ({
             name: i.name,

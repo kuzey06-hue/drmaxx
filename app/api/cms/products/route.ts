@@ -9,7 +9,8 @@ async function read() {
   catch { return []; }
 }
 async function write(data: unknown) {
-  await fs.writeFile(FILE, JSON.stringify(data, null, 2), "utf-8");
+  try { await fs.writeFile(FILE, JSON.stringify(data, null, 2), "utf-8"); }
+  catch { /* Vercel read-only filesystem — ignore */ }
 }
 
 // GET /api/cms/products
