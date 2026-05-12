@@ -1,0 +1,28 @@
+{
+  "trendyol": {
+    "active": false,
+    "supplierId": "",
+    "apiKey": "",
+    "apiSecret": "",
+    "autoSync": false,
+    "lastSync": null,
+    "syncCount": 0
+  },
+  "hepsiburada": {
+    "active": false,
+    "merchantId": "",
+    "username": "",
+    "password": "",
+    "autoSync": false,
+    "lastSync": null,
+    "syncCount": 0
+  },
+  "n11": {
+    "active": false,
+    "apiKey": "",
+    "apiSecret": "",
+    "autoSync": false,
+    "lastSync": null,
+    "syncCount": 0
+  }
+}

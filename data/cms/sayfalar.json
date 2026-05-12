@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Hakkımızda",
+    "slug": "/hakkimizda",
+    "updated": "2026-05-03",
+    "status": "Yayında",
+    "metaTitle": "Hakkımızda | DR.MAXX",
+    "metaDesc": "DR.MAXX hakkında bilgi edinin.",
+    "content": "DR.MAXX, 2018 yılından bu yana bilimsel formülleriyle öne çıkan bir sağlık takviyesi markasıdır.\n\nAmacımız, insanların daha sağlıklı ve enerjik bir yaşam sürmelerine yardımcı olmak için en kaliteli takviye ürünlerini sunmaktır.\n\nTüm ürünlerimiz GMP sertifikalı tesislerde üretilmekte ve bağımsız laboratuvarlarda test edilmektedir."
+  },
+  {
+    "id": 2,
+    "title": "Gizlilik Politikası",
+    "slug": "/gizlilik",
+    "updated": "2026-04-01",
+    "status": "Yayında",
+    "metaTitle": "Gizlilik Politikası | DR.MAXX",
+    "metaDesc": "Kişisel verilerinizin nasıl işlendiğini öğrenin.",
+    "content": "Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.\n\n## Toplanan Veriler\n\nSitenizi kullanırken ad, e-posta adresi, telefon numarası ve teslimat adresi gibi kişisel verilerinizi toplayabiliriz.\n\n## Verilerin Kullanımı\n\nToplanan veriler yalnızca sipariş işleme, müşteri hizmetleri ve yasal yükümlülükler için kullanılır."
+  },
+  {
+    "id": 3,
+    "title": "KVKK",
+    "slug": "/kvkk",
+    "updated": "2026-05-07",
+    "status": "Yayında",
+    "metaTitle": "KVKK Aydınlatma Metni | DR.MAXX",
+    "metaDesc": "6698 sayılı Kanun kapsamında aydınlatma metni.",
+    "content": "KİŞİSEL VERİLERİN KORUNMASI AYDINLATMA METNİ\n1. Veri Sorumlusu\n\n6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında, kişisel verileriniz veri sorumlusu sıfatıyla [ŞİRKET ADI] tarafından aşağıda açıklanan kapsamda işlenebilecektir.\n\nFirma Ünvanı: [ŞİRKET ADI]\nAdres: [ŞİRKET ADRESİ]\nTelefon: [TELEFON]\nE-Posta: [E-POSTA ADRESİ]\nWeb Sitesi: [WEB SİTESİ]\n\n2. İşlenen Kişisel Veriler\n\nTarafımızca aşağıdaki kişisel veriler işlenebilmektedir:\n\nAd Soyad\nTelefon Numarası\nE-posta Adresi\nFirma Bilgileri\nIP Adresi ve Çerez Verileri\nMesaj / Talep İçeriği\nTeklif ve Sipariş Bilgileri\n3. Kişisel Verilerin İşlenme Amaçları\n\nKişisel verileriniz aşağıdaki amaçlarla işlenmektedir:\n\nTeklif ve hizmet süreçlerinin yürütülmesi\nMüşteri iletişiminin sağlanması\nSipariş ve teslimat işlemlerinin gerçekleştirilmesi\nTeknik destek verilmesi\nFaturalandırma süreçlerinin yürütülmesi\nYasal yükümlülüklerin yerine getirilmesi\nWeb sitesi güvenliğinin sağlanması\nPazarlama ve bilgilendirme faaliyetlerinin yürütülmesi\n4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi\n\nKişisel verileriniz;\n\nWeb sitesi iletişim formları,\nWhatsApp iletişimi,\nTelefon görüşmeleri,\nE-posta yazışmaları,\nÇerezler (cookies),\nSosyal medya iletişimleri\n\naracılığıyla elektronik veya fiziki ortamda toplanabilmektedir.\n\nVerileriniz KVKK’nın 5. ve 6. maddelerinde belirtilen;\n\nsözleşmenin kurulması ve ifası,\nhukuki yükümlülüklerin yerine getirilmesi,\nmeşru menfaat,\naçık rıza\n\nhukuki sebeplerine dayanılarak işlenmektedir.\n\n5. Kişisel Verilerin Aktarılması\n\nKişisel verileriniz;\n\nYetkili kamu kurum ve kuruluşlarına,\nMali müşavirlik ve muhasebe hizmeti sağlayıcılarına,\nKargo ve lojistik firmalarına,\nHosting ve teknik altyapı hizmet sağlayıcılarına\n\nKVKK’ya uygun şekilde aktarılabilecektir.\n\n6. KVKK Kapsamındaki Haklarınız\n\nKVKK’nın 11. maddesi kapsamında aşağıdaki haklara sahipsiniz:\n\nKişisel veri işlenip işlenmediğini öğrenme,\nİşlenen verilere ilişkin bilgi talep etme,\nİşlenme amacını öğrenme,\nEksik veya yanlış işlenmişse düzeltilmesini isteme,\nKVKK’ya uygun olarak silinmesini veya yok edilmesini isteme,\nAktarıldığı üçüncü kişileri öğrenme,\nOtomatik sistemler ile analiz sonucu aleyhinize çıkan sonuçlara itiraz etme,\nZarara uğramanız halinde tazminat talep etme.\n\nBaşvurularınızı aşağıdaki iletişim bilgilerinden tarafımıza iletebilirsiniz:\n\nE-Posta: [E-POSTA ADRESİ]"
+  },
+  {
+    "id": 4,
+    "title": "Kargo & Teslimat",
+    "slug": "/kargo",
+    "updated": "2026-03-15",
+    "status": "Yayında",
+    "metaTitle": "Kargo & Teslimat | DR.MAXX",
+    "metaDesc": "Kargo ve teslimat bilgileri.",
+    "content": "Siparişleriniz 1-3 iş günü içinde kargoya teslim edilmektedir.\n\n## Kargo Firmaları\n\nYurtiçi Kargo ve Aras Kargo ile çalışmaktayız.\n\n## Ücretsiz Kargo\n\n300 TL ve üzeri siparişlerde kargo ücretsizdir.\n\n## Teslimat Süresi\n\nBüyükşehirlere 1-2 iş günü, diğer illere 2-3 iş günü içinde teslimat yapılmaktadır."
+  },
+  {
+    "id": 5,
+    "title": "İade & Değişim",
+    "slug": "/iade",
+    "updated": "2026-03-15",
+    "status": "Yayında",
+    "metaTitle": "İade & Değişim | DR.MAXX",
+    "metaDesc": "İade ve değişim politikamız hakkında bilgi alın.",
+    "content": "Ürün teslimatından itibaren 14 gün içinde iade talebinde bulunabilirsiniz.\n\n## İade Koşulları\n\nİade edilecek ürünlerin kullanılmamış, orijinal ambalajında ve faturasıyla birlikte gönderilmesi gerekmektedir.\n\n## İade Süreci\n\nİade talebinizi müşteri hizmetlerimize ilettiğinizde size kargo kodu gönderilecektir. Ürün tarafımıza ulaştıktan sonra 5 iş günü içinde iade işleminiz tamamlanacaktır."
+  }
+]

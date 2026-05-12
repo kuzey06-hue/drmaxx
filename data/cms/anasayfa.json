@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "İLERİ FORMÜLLER.\nDAHA İYİ SONUÇLAR.",
+    "subtitle": "Bilimsel olarak geliştirilmiş premium takviyeler ile potansiyelinizi üst düzeye çıkarın.",
+    "ctaText": "Ürünleri Keşfet",
+    "image": "/products/hero.jpg",
+    "mobileSlides": [
+      "/products/stikolin-hero-1.jpg",
+      "/products/stikolin-hero-2.jpg",
+      "/products/stikolin-hero-3.jpg",
+      "/products/stikolin-hero-4.jpg",
+      "/products/stikolin-hero-5.jpg",
+      "/products/stikolin-hero-6.jpg"
+    ]
+  },
+  "whyDrmaxx": {
+    "title": "Neden DR.MAXX?",
+    "subtitle": "Sağlığınız için en iyisini sunmak bizim önceliğimiz.",
+    "image": "/images/neden.png"
+  },
+  "expertSection": {
+    "active": true,
+    "title": "Uzmanlarımızdan Öneriler",
+    "subtitle": "Alanında uzman doktorlarımızın sizin için seçtiği ürünler."
+  }
+}

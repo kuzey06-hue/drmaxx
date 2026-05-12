@@ -1,0 +1,64 @@
+[
+  {
+    "title": "test",
+    "slug": "test",
+    "category": "Sağlık",
+    "author": "Admin",
+    "content": "test",
+    "status": "Yayında",
+    "date": "2026-05-07",
+    "tags": [],
+    "metaTitle": "t | DR.MAXX",
+    "metaDesc": "",
+    "id": "1778187287428"
+  },
+  {
+    "title": "Sitikolin-plus Nedir?",
+    "slug": "sitikolin-plus-nedir",
+    "category": "Sağlık",
+    "author": "Admin",
+    "content": "test",
+    "status": "Taslak",
+    "date": "2026-05-07",
+    "tags": [],
+    "metaTitle": "S | DR.MAXX",
+    "metaDesc": "",
+    "id": "1778187252747"
+  },
+  {
+    "id": "1",
+    "title": "Beyin Sağlığını Korumanın 5 Yolu",
+    "slug": "beyin-sagligini-korumanin-5-yolu",
+    "category": "Sağlık",
+    "author": "Dr. Selim Çalışkan",
+    "date": "2026-05-05",
+    "status": "Yayında",
+    "coverImage": "",
+    "tags": [
+      "beyin",
+      "sağlık",
+      "nörobilim"
+    ],
+    "metaTitle": "Beyin Sağlığını Korumanın 5 Yolu | DR.MAXX",
+    "metaDesc": "Beyin sağlığınızı korumak için uygulayabileceğiniz 5 bilimsel yöntem.",
+    "content": "Beyin sağlığımızı korumak, yaşam kalitemizi doğrudan etkiler. Araştırmalar, düzenli egzersiz, kaliteli uyku, dengeli beslenme, zihinsel uyarım ve sosyal bağlantıların beyin sağlığını desteklediğini ortaya koymaktadır.\n\n## 1. Düzenli Egzersiz\n\nGünlük 30 dakika orta yoğunlukta egzersiz, beyne giden kan akışını artırır ve nöroprotektif faktörlerin salınımını tetikler.\n\n## 2. Kaliteli Uyku\n\nUyku sırasında beyin, toksinleri temizler ve yeni bilgileri konsolide eder. Her gece 7-9 saat uyku hedefleyin.\n\n## 3. Dengeli Beslenme\n\nOmega-3 yağ asitleri, antioksidanlar ve B vitaminleri beyin fonksiyonunu destekleyen temel besinlerdir.\n\n## 4. Zihinsel Uyarım\n\nYeni beceriler öğrenmek, bulmaca çözmek ve okumak nöral bağlantıları güçlendirir.\n\n## 5. Sosyal Bağlantılar\n\nGüçlü sosyal ilişkiler, bilişsel gerilemeye karşı koruyucu bir faktördür."
+  },
+  {
+    "id": "2",
+    "title": "Omega-3'ün Kalp Sağlığına Etkisi",
+    "slug": "omega-3-kalp-sagligi",
+    "category": "Beslenme",
+    "author": "Admin",
+    "date": "2026-05-02",
+    "status": "Yayında",
+    "coverImage": "",
+    "tags": [
+      "omega-3",
+      "kalp",
+      "beslenme"
+    ],
+    "metaTitle": "Omega-3'ün Kalp Sağlığına Etkisi | DR.MAXX",
+    "metaDesc": "Omega-3 yağ asitlerinin kardiyovasküler sistem üzerindeki kanıtlanmış etkileri.",
+    "content": "Omega-3 yağ asitleri, özellikle EPA ve DHA, kalp sağlığı üzerinde güçlü koruyucu etkilere sahiptir. Dünya genelinde yapılan kapsamlı araştırmalar, düzenli omega-3 alımının kardiyovasküler hastalık riskini önemli ölçüde azalttığını göstermektedir.\n\n## Trigliserit Düzeyleri\n\nOmega-3 takviyeleri, kandaki trigliserit seviyelerini %15-30 oranında düşürebilir.\n\n## Kan Basıncı\n\nDüzenli omega-3 alımı, hafif kan basıncı düşürücü etki gösterir.\n\n## Ateroskleroz Önleme\n\nOmega-3, damar duvarlarındaki iltihaplanmayı azaltarak plak oluşumunu engeller."
+  }
+]
