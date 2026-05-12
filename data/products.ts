@@ -53,7 +53,7 @@ export const products: Product[] = [
     category: "Nörobilim",
     description: "Sitikolin, Omega-3 (Balık Yağı), Fosfatidilserin, Koenzim Q10, B Vitamini Kompleksi, Metilkobalamin B12",
     color: "#1D4ED8",
-    image: "/products/sitikolin-plus.jpg",
+    image: "/products/sitikolin-plus.jpg?v=2",
     shortDesc: "Beyin fonksiyonlarını destekleyen, odaklanma ve konsantrasyonu artıran ileri formül takviye.",
     benefits: [
       "Hafıza ve öğrenme kapasitesini destekler",
@@ -95,7 +95,7 @@ export const products: Product[] = [
     category: "Antioksidan",
     description: "Resveratrol, Quercetin, Laktoferrin, Vitamin C, Çinko Pikolinat, Vitamin D3 içeren sıvı takviye edici gıda.",
     color: "#7C3AED",
-    image: "/products/resveratrol-advance-complex.jpg",
+    image: "/products/resveratrol-advance-complex.jpg?v=2",
     shortDesc: "Güçlü antioksidan formülü ile hücresel yaşlanmayı yavaşlatır, bağışıklık sistemini güçlendirir. 4 yaş ve üzeri için uygundur.",
     benefits: [
       "Güçlü antioksidan koruma sağlar",
@@ -133,7 +133,7 @@ export const products: Product[] = [
     category: "Nörobilim",
     description: "B6 Vitamini (Piridoksin) içeren damlalık formülü takviye edici gıda.",
     color: "#8B5CF6",
-    image: "/products/neuro-drops.jpg",
+    image: "/products/neuro-drops.jpg?v=2",
     shortDesc: "Sinir sistemi sağlığını destekleyen, kolay emilen damlalık formüllü B6 vitamini takviyesi. 4 yaş ve üzeri için uygundur.",
     benefits: [
       "Sinir sistemi fonksiyonlarını destekler",
@@ -161,7 +161,7 @@ export const products: Product[] = [
     category: "Beyin Sağlığı",
     description: "Fosfolipidler, Kril Yağı (Omega-3, EPA, DHA, Astaksantin), Keten Tohumu Yağı, Magnezyum L-Treonat ve Vitamin B6 içeren sıvı takviye edici gıda.",
     color: "#0891B2",
-    image: "/products/phospholipid-complex.jpg",
+    image: "/products/phospholipid-complex.jpg?v=2",
     shortDesc: "Beyin hücresi zarlarını güçlendiren fosfolipid kompleksi ile bilişsel performansı, hafıza ve öğrenme kapasitesini destekler. 4 yaş ve üzeri için uygundur.",
     benefits: [
       "Beyin hücresi zarlarını güçlendirir",
@@ -205,7 +205,7 @@ export const products: Product[] = [
     category: "Çocuk Sağlığı",
     description: "Karagen Ekstresi, Kekik, Hatmi ve Meyan Kökü içeren bitkisel takviye edici gıda. Tatlandırıcı içerir.",
     color: "#3B82F6",
-    image: "/products/karagen-kids.jpg",
+    image: "/products/karagen-kids.jpg?v=2",
     shortDesc: "Karagen ekstresi ve bitkisel formülüyle solunum yolu sağlığını destekleyen, 4-10 yaş çocuklar ile yetişkinler için özel sıvı takviye.",
     benefits: [
       "Solunum yolu sağlığını destekler",
@@ -240,7 +240,7 @@ export const products: Product[] = [
     category: "Omega",
     description: "Balık Yağı (Omega-3, EPA, DHA), Fosfatidilserin, Sitikolin, Koenzim Q10 ve B Vitamini Kompleksi içeren yumuşak kapsül takviye edici gıda.",
     color: "#D97706",
-    image: "/products/omega-3.jpg",
+    image: "/products/omega-3.jpg?v=2",
     shortDesc: "Balık yağı, fosfatidilserin ve sitikolin kombinasyonu ile beyin, kalp ve sinir sistemi sağlığını bütünsel olarak destekleyen ileri formül.",
     benefits: [
       "Kalp-damar sağlığını destekler",
