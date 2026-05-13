@@ -4,26 +4,50 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 const HERO_SLIDES = [
-  { src: "/images/hero-1.jpg", bgColor: "#fefefe" },
-  { src: "/images/hero-2.jpg", bgColor: "#000519" },
-  { src: "/images/hero-3.jpg", bgColor: "#fefefe" },
-  { src: "/images/hero-4.jpg", bgColor: "#fefefe" },
-  { src: "/images/hero-5.jpg", bgColor: "#f1f4fb" },
-  { src: "/images/hero6.jpg", bgColor: "#ecf3fd" },
+  { src: "/images/hero-1-w.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-2-.jpg", bgColor: "#000519" },
+  { src: "/images/hero-3-w.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-4-w.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-5-.jpg", bgColor: "#f1f4fb" },
+  { src: "/images/hero-6-w.jpg", bgColor: "#ecf3fd" },
 ];
 
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const divRef = useRef<HTMLDivElement>(null);
   const touchStartXRef = useRef<number | null>(null);
   const slides = useMemo(() => HERO_SLIDES, []);
 
   useEffect(() => {
-    if (slides.length <= 1) return;
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!divRef.current || !sectionRef.current) return;
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const updateWidth = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        divRef.current!.style.width = "1905px";
+        sectionRef.current!.style.width = "1905px";
+      } else {
+        divRef.current!.style.width = "100%";
+        sectionRef.current!.style.width = "100%";
+      }
+    };
+    updateWidth(mediaQuery);
+    mediaQuery.addEventListener("change", updateWidth);
+    return () => mediaQuery.removeEventListener("change", updateWidth);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted || slides.length <= 1) return;
     const timer = window.setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length);
     }, 8000);
     return () => window.clearInterval(timer);
-  }, [slides.length]);
+  }, [mounted, slides.length]);
 
   const handleTouchStart = (clientX: number) => {
     touchStartXRef.current = clientX;
@@ -44,8 +68,8 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden">
-      <div className="relative ml-auto transition-colors duration-700 max-h-screen md:max-h-none md:h-screen" style={{ width: "1750px", height: "900px", backgroundColor: slides[activeSlide]?.bgColor || "#fefefe" }}>
+    <section ref={sectionRef} className="relative overflow-hidden md:overflow-visible md:flex md:justify-end -mx-4 md:mx-0">
+      <div ref={divRef} className="relative h-40 md:h-[800px] transition-colors duration-700" style={{ backgroundColor: slides[activeSlide]?.bgColor || "#fefefe" }}>
         {slides.map((slide, index) => (
           <Image
             key={`${slide.src}-${index}`}
@@ -54,10 +78,9 @@ export function Hero() {
             fill
             priority={index === 0}
             sizes="100vw"
-            className={`object-contain transition-opacity duration-700 ${
+            className={`object-cover object-right transition-opacity duration-700 ${
               index === activeSlide ? "opacity-100" : "opacity-0"
             }`}
-            style={{ objectPosition: "right" }}
             onTouchStart={(e) => handleTouchStart(e.touches[0].clientX)}
             onTouchEnd={(e) => handleTouchEnd(e.changedTouches[0].clientX)}
           />
