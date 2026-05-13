@@ -42,7 +42,7 @@ export function ProductGallery({ product, discount }: Props) {
             src={mainImage}
             alt={product.name}
             fill
-            className="object-contain p-4"
+            className="object-cover"
             onError={() => setImgError({ ...imgError, [selectedIndex]: true })}
             priority
           />
