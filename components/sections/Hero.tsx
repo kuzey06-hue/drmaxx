@@ -4,12 +4,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 const HERO_SLIDES = [
-  "/images/hero-1.jpg",
-  "/images/hero-2.jpg",
-  "/images/hero-3.jpg",
-  "/images/hero-4.jpg",
-  "/images/hero-5.jpg",
-  "/images/hero6.jpg",
+  { src: "/images/hero-1.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-2.jpg", bgColor: "#000519" },
+  { src: "/images/hero-3.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-4.jpg", bgColor: "#fefefe" },
+  { src: "/images/hero-5.jpg", bgColor: "#f1f4fb" },
+  { src: "/images/hero6.jpg", bgColor: "#ecf3fd" },
 ];
 
 export function Hero() {
@@ -44,17 +44,17 @@ export function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#070D1A]">
-      <div className="relative w-full h-[clamp(320px,42vw,620px)]">
-        {slides.map((src, index) => (
+    <section className="relative overflow-hidden">
+      <div className="relative w-full h-[clamp(500px,70vw,900px)] transition-colors duration-700" style={{ backgroundColor: slides[activeSlide]?.bgColor || "#fefefe" }}>
+        {slides.map((slide, index) => (
           <Image
-            key={`${src}-${index}`}
-            src={src}
+            key={`${slide.src}-${index}`}
+            src={slide.src}
             alt={`DR.MAXX Hero ${index + 1}`}
             fill
             priority={index === 0}
             sizes="100vw"
-            className={`object-contain object-center transition-opacity duration-700 ${
+            className={`object-contain object-right transition-opacity duration-700 ${
               index === activeSlide ? "opacity-100" : "opacity-0"
             }`}
             onTouchStart={(e) => handleTouchStart(e.touches[0].clientX)}
