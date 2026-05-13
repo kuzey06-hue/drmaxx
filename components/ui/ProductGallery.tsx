@@ -22,7 +22,7 @@ export function ProductGallery({ product, discount }: Props) {
     <div className="flex flex-col gap-4">
       {/* Ana görsel */}
       <div
-        className="relative rounded-3xl overflow-hidden flex items-center justify-center aspect-square"
+        className="relative rounded-3xl overflow-hidden flex items-center justify-center aspect-video max-w-md"
         style={{
           background: `linear-gradient(135deg, ${product.color}12 0%, ${product.color}25 100%)`,
         }}
@@ -64,7 +64,7 @@ export function ProductGallery({ product, discount }: Props) {
             <button
               key={idx}
               onClick={() => setSelectedIndex(idx)}
-              className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+              className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
                 selectedIndex === idx
                   ? "border-orange-500 ring-2 ring-orange-200"
                   : "border-gray-200 hover:border-gray-300"
