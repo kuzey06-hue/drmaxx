@@ -54,9 +54,10 @@ export function Hero() {
             fill
             priority={index === 0}
             sizes="100vw"
-            className={`object-contain object-right transition-opacity duration-700 ${
+            className={`object-contain transition-opacity duration-700 ${
               index === activeSlide ? "opacity-100" : "opacity-0"
             }`}
+            style={{ objectPosition: "right" }}
             onTouchStart={(e) => handleTouchStart(e.touches[0].clientX)}
             onTouchEnd={(e) => handleTouchEnd(e.changedTouches[0].clientX)}
           />
