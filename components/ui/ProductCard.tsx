@@ -21,8 +21,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const [imgError, setImgError] = useState(false);
   const [added, setAdded] = useState(false);
   const { addItem } = useCart();
+  const imageSrc = product.image;
 
-  const hasImage = !!product.image && !imgError;
+  const hasImage = !!imageSrc && !imgError;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -75,11 +76,11 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         >
           {hasImage ? (
             <Image
-              src={product.image!}
+              src={imageSrc!}
               alt={product.name}
               fill
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               onError={() => setImgError(true)}
             />
           ) : (

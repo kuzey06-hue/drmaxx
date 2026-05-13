@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -13,6 +13,7 @@ import type { Product } from "@/data/products";
 import { formatPrice } from "@/lib/utils";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { Badge } from "@/components/ui/Badge";
+import { ProductGallery } from "@/components/ui/ProductGallery";
 
 const TABS = ["Açıklama", "İçerikler", "Kullanım", "Yorumlar"] as const;
 type Tab = (typeof TABS)[number];
@@ -42,9 +43,7 @@ export function ProductDetail({ product, related }: Props) {
   const [wishlisted, setWishlisted] = useState(false);
   const [added, setAdded] = useState(false);
   const [activeTab, setActiveTab] = useState<Tab>("Açıklama");
-  const [imgError, setImgError] = useState(false);
 
-  const hasImage = !!product.image && !imgError;
   const discount = product.originalPrice
     ? Math.round((1 - product.price / product.originalPrice) * 100)
     : null;
@@ -86,42 +85,8 @@ export function ProductDetail({ product, related }: Props) {
             transition={{ duration: 0.5 }}
             className="flex flex-col gap-4"
           >
-            {/* Ana görsel */}
-            <div
-              className="relative rounded-3xl overflow-hidden flex items-center justify-center aspect-square"
-              style={{
-                background: `linear-gradient(135deg, ${product.color}12 0%, ${product.color}25 100%)`,
-              }}
-            >
-              {product.badge && (
-                <div className="absolute top-4 left-4 z-10">
-                  <Badge label={product.badge} />
-                </div>
-              )}
-              {discount && (
-                <div className="absolute top-4 right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold">
-                  -{discount}%
-                </div>
-              )}
-              {hasImage ? (
-                <Image
-                  src={product.image!}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  onError={() => setImgError(true)}
-                  priority
-                />
-              ) : (
-                <div
-                  className="w-48 h-64 rounded-2xl flex flex-col items-center justify-center text-white font-bold shadow-xl"
-                  style={{ background: `linear-gradient(160deg, ${product.color}, ${product.color}cc)` }}
-                >
-                  <span className="text-xs tracking-widest opacity-70 mb-2">DR.MAXX</span>
-                  <span className="text-center px-4 text-sm leading-snug">{product.name}</span>
-                </div>
-              )}
-            </div>
+            {/* Galeri */}
+            <ProductGallery product={product} discount={discount} />
 
             {/* Trust badges — sadece masaüstünde */}
             <div className="hidden lg:grid grid-cols-2 gap-3">
@@ -528,3 +493,6 @@ export function ProductDetail({ product, related }: Props) {
     </div>
   );
 }
+
+
+

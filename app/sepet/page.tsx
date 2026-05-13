@@ -13,7 +13,7 @@ function formatPrice(n: number) {
   return new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 }).format(n);
 }
 
-/** ÃœrÃ¼n baÅŸÄ±na kademe ilerleme Ã§ubuÄŸu */
+/** Ürün başına kademe ilerleme çubuğu */
 function QtyTierProgress({ quantity }: { quantity: number }) {
   const discPct  = getQtyDiscountPercent(quantity);
   const nextTier = getNextQtyTier(quantity);
@@ -23,7 +23,7 @@ function QtyTierProgress({ quantity }: { quantity: number }) {
     return (
       <div className="flex items-center gap-1.5 text-[11px] font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full">
         <Check size={10} />
-        Maksimum indirim aktif â€” %{discPct}
+        Maksimum indirim aktif — %{discPct}
       </div>
     );
   }
@@ -37,7 +37,7 @@ function QtyTierProgress({ quantity }: { quantity: number }) {
       >
         <Zap size={10} className="flex-shrink-0" />
         <span>
-          {needed} adet daha ekle â†’{" "}
+          {needed} adet daha ekle →{" "}
           <span className="font-black">%{nextTier.percent} indirim</span> kazan!
         </span>
       </motion.div>
@@ -103,7 +103,7 @@ export default function SepetPage() {
         <div className="max-w-7xl mx-auto px-6 py-10">
           <h1 className="text-2xl font-black text-gray-900 mb-2">Sepetim</h1>
 
-          {/* Adet indirim bilgi bandÄ± */}
+          {/* Adet indirim bilgi bandı */}
           <div className="flex items-center gap-6 mb-8 p-4 bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl border border-orange-100">
             <Zap size={20} className="text-orange-500 flex-shrink-0" />
             <div className="flex items-center gap-6 flex-wrap">
@@ -111,7 +111,7 @@ export default function SepetPage() {
                 <div key={tier.minQty} className="flex items-center gap-2">
                   <span className="text-sm font-black text-orange-600">%{tier.percent}</span>
                   <span className="text-sm text-gray-600">
-                    indirim â€” {tier.minQty} veya daha fazla adet alÄ±mÄ±nda
+                    indirim — {tier.minQty} veya daha fazla adet alımında
                   </span>
                 </div>
               ))}
@@ -123,22 +123,22 @@ export default function SepetPage() {
               <div className="w-24 h-24 rounded-3xl bg-orange-50 flex items-center justify-center mb-6">
                 <ShoppingCart size={36} className="text-orange-300" />
               </div>
-              <h2 className="text-xl font-bold text-gray-700 mb-2">Sepetiniz boÅŸ</h2>
-              <p className="text-gray-400 text-sm mb-8">ÃœrÃ¼nleri keÅŸfedin ve sepetinize ekleyin.</p>
+              <h2 className="text-xl font-bold text-gray-700 mb-2">Sepetiniz boş</h2>
+              <p className="text-gray-400 text-sm mb-8">Ürünleri keşfedin ve sepetinize ekleyin.</p>
               <Link
                 href="/urunler"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-colors"
               >
-                ÃœrÃ¼nlere Git <ArrowRight size={16} />
+                Ürünlere Git <ArrowRight size={16} />
               </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8">
 
-              {/* â”€â”€ Sol: ÃœrÃ¼n listesi â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+              {/* ── Sol: Ürün listesi ─────────────────────────────── */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-500">{items.reduce((s, i) => s + i.quantity, 0)} Ã¼rÃ¼n</p>
+                  <p className="text-sm text-gray-500">{items.reduce((s, i) => s + i.quantity, 0)} ürün</p>
                   <button onClick={clearCart} className="text-xs text-red-400 hover:text-red-600 transition-colors">
                     Sepeti Temizle
                   </button>
@@ -167,7 +167,7 @@ export default function SepetPage() {
                             name={item.name} quantity={item.quantity}
                             className="w-20 h-20" sizes="80px"
                           />
-                          {/* Ä°ndirim rozeti â€” resmin Ã¼zerinde */}
+                          {/* İndirim rozeti — resmin üzerinde */}
                           <AnimatePresence>
                             {isDiscounted && (
                               <motion.span
@@ -200,7 +200,7 @@ export default function SepetPage() {
                             </button>
                           </div>
 
-                          {/* Fiyat satÄ±rÄ± */}
+                          {/* Fiyat satırı */}
                           <div className="flex items-center gap-2 mt-1.5">
                             <span className="text-orange-500 font-bold">{formatPrice(effectivePrice)}</span>
                             {isDiscounted && (
@@ -209,7 +209,7 @@ export default function SepetPage() {
                             <span className="text-xs text-gray-400">/ adet</span>
                           </div>
 
-                          {/* Tasarruf satÄ±rÄ± */}
+                          {/* Tasarruf satırı */}
                           <AnimatePresence>
                             {isDiscounted && (
                               <motion.p
@@ -218,7 +218,7 @@ export default function SepetPage() {
                                 exit={{ opacity: 0, height: 0 }}
                                 className="text-[11px] text-green-600 font-semibold mt-0.5"
                               >
-                                Bu Ã¼rÃ¼nde {formatPrice(itemSaving)} tasarruf ediyorsunuz ğŸ‰
+                                Bu üründe {formatPrice(itemSaving)} tasarruf ediyorsunuz 🎉
                               </motion.p>
                             )}
                           </AnimatePresence>
@@ -256,16 +256,16 @@ export default function SepetPage() {
                 </AnimatePresence>
               </div>
 
-              {/* â”€â”€ SaÄŸ: SipariÅŸ Ã¶zeti â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+              {/* ── Sağ: Sipariş özeti ───────────────────────────── */}
               <div className="space-y-4">
                 <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-                  <h2 className="font-bold text-gray-900 mb-5">SipariÅŸ Ã–zeti</h2>
+                  <h2 className="font-bold text-gray-900 mb-5">Sipariş Özeti</h2>
 
                   <div className="space-y-3 text-sm">
-                    {/* Ham tutar (indirim Ã¶ncesi) */}
+                    {/* Ham tutar (indirim öncesi) */}
                     {qtyDiscount > 0 && (
                       <div className="flex justify-between text-gray-400">
-                        <span>Liste FiyatÄ±</span>
+                        <span>Liste Fiyatı</span>
                         <span className="line-through">{formatPrice(subtotal + qtyDiscount)}</span>
                       </div>
                     )}
@@ -281,7 +281,7 @@ export default function SepetPage() {
                         >
                           <span className="flex items-center gap-1.5 text-green-600 font-semibold">
                             <Tag size={12} />
-                            Adet Ä°ndirimi
+                            Adet İndirimi
                           </span>
                           <span className="font-bold text-green-600">-{formatPrice(qtyDiscount)}</span>
                         </motion.div>
@@ -298,7 +298,7 @@ export default function SepetPage() {
                     <div className="flex justify-between text-gray-500">
                       <span>Kargo</span>
                       <span className={kargo === 0 ? "text-green-500 font-semibold" : ""}>
-                        {kargo === 0 ? "Ãœcretsiz" : formatPrice(kargo)}
+                        {kargo === 0 ? "Ücretsiz" : formatPrice(kargo)}
                       </span>
                     </div>
                     <div className="pt-1">
@@ -309,7 +309,7 @@ export default function SepetPage() {
                             <div>
                               <p className="text-xs font-bold text-green-700 font-mono">{kuponOK.code}</p>
                               <p className="text-[10px] text-green-600">
-                                {kuponOK.type === "percent" ? `%${kuponOK.value}` : `₺${kuponOK.value}`} indirim uygulandi
+                                {kuponOK.type === "percent" ? `%${kuponOK.value}` : `?${kuponOK.value}`} indirim uygulandi
                               </p>
                             </div>
                           </div>
@@ -346,7 +346,7 @@ export default function SepetPage() {
                     {kargo > 0 && (
                       <div className="flex items-center gap-1.5 text-xs text-orange-500 bg-orange-50 rounded-xl px-3 py-2">
                         <Tag size={11} />
-                        <span>{formatPrice(300 - subtotal)} daha ekle, kargo Ã¼cretsiz!</span>
+                        <span>{formatPrice(300 - subtotal)} daha ekle, kargo ücretsiz!</span>
                       </div>
                     )}
 
@@ -366,7 +366,7 @@ export default function SepetPage() {
                       <span>{formatPrice(toplam)}</span>
                     </div>
 
-                    {/* Toplam tasarruf Ã¶zeti */}
+                    {/* Toplam tasarruf özeti */}
                     {qtyDiscount > 0 && (
                       <div className="flex items-center justify-center gap-2 bg-green-50 rounded-xl px-3 py-2.5 text-green-700 text-xs font-semibold">
                         <Check size={13} className="text-green-500" />
@@ -379,22 +379,22 @@ export default function SepetPage() {
                     href={kuponOK ? `/odeme?kupon=${encodeURIComponent(kuponOK.code)}` : "/odeme"}
                     className="flex items-center justify-center gap-2 w-full mt-5 py-3.5 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold transition-colors shadow-lg shadow-orange-500/20"
                   >
-                    Ã–demeye GeÃ§ <ArrowRight size={16} />
+                    Ödemeye Geç <ArrowRight size={16} />
                   </Link>
                   <Link
                     href="/urunler"
                     className="flex items-center justify-center w-full mt-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50 transition-colors"
                   >
-                    AlÄ±ÅŸveriÅŸe Devam Et
+                    Alışverişe Devam Et
                   </Link>
                 </div>
 
-                {/* GÃ¼ven rozetleri */}
+                {/* Güven rozetleri */}
                 <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
                   {[
-                    { icon: "ğŸ”’", text: "256-bit SSL ile gÃ¼venli Ã¶deme" },
-                    { icon: "â†©ï¸", text: "14 gÃ¼n iÃ§inde kolay iade" },
-                    { icon: "ğŸšš", text: "300â‚º Ã¼zeri Ã¼cretsiz kargo" },
+                    { icon: "🔒", text: "256-bit SSL ile güvenli ödeme" },
+                    { icon: "↩️", text: "14 gün içinde kolay iade" },
+                    { icon: "🚚", text: "300₺ üzeri ücretsiz kargo" },
                   ].map(({ icon, text }) => (
                     <div key={text} className="flex items-center gap-2.5 py-2 text-xs text-gray-500 border-b border-gray-50 last:border-0">
                       <span>{icon}</span>
@@ -411,6 +411,7 @@ export default function SepetPage() {
     </main>
   );
 }
+
 
 
 

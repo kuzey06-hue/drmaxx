@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { Package, Clock, Lock, RotateCcw, Headphones } from "lucide-react";
@@ -39,3 +39,4 @@ export function BottomTrustBar() {
     </section>
   );
 }
+

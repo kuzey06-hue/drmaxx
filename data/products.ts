@@ -23,6 +23,7 @@ export interface Product {
   description: string;
   color: string;
   image?: string;
+  gallery?: string[];  // Ürün detay sayfası galeri resimleri
   // Detay sayfası için ek alanlar
   shortDesc?: string;
   benefits?: string[];
@@ -54,6 +55,11 @@ export const products: Product[] = [
     description: "Sitikolin, Omega-3 (Balık Yağı), Fosfatidilserin, Koenzim Q10, B Vitamini Kompleksi, Metilkobalamin B12",
     color: "#1D4ED8",
     image: "/products/sitikolin-plus.jpg?v=2",
+    gallery: [
+      "/products/sitikolin-plus.jpg?v=2",
+      "/products/stikolin-.png",
+      "/products/sitikolin-kutu.png",
+    ],
     shortDesc: "Beyin fonksiyonlarını destekleyen, odaklanma ve konsantrasyonu artıran ileri formül takviye.",
     benefits: [
       "Hafıza ve öğrenme kapasitesini destekler",
@@ -96,6 +102,12 @@ export const products: Product[] = [
     description: "Resveratrol, Quercetin, Laktoferrin, Vitamin C, Çinko Pikolinat, Vitamin D3 içeren sıvı takviye edici gıda.",
     color: "#7C3AED",
     image: "/products/resveratrol-advance-complex.jpg?v=2",
+    gallery: [
+      "/products/resveratrol-advance-complex.jpg?v=2",
+      "/products/resveratrol.png",
+      "/products/resveratrol-sise.png",
+      "/products/resveratrol-kutu.png",
+    ],
     shortDesc: "Güçlü antioksidan formülü ile hücresel yaşlanmayı yavaşlatır, bağışıklık sistemini güçlendirir. 4 yaş ve üzeri için uygundur.",
     benefits: [
       "Güçlü antioksidan koruma sağlar",
@@ -162,6 +174,12 @@ export const products: Product[] = [
     description: "Fosfolipidler, Kril Yağı (Omega-3, EPA, DHA, Astaksantin), Keten Tohumu Yağı, Magnezyum L-Treonat ve Vitamin B6 içeren sıvı takviye edici gıda.",
     color: "#0891B2",
     image: "/products/phospholipid-complex.jpg?v=2",
+    gallery: [
+      "/products/phospholipid-complex.jpg?v=2",
+      "/products/fosfolipid.png",
+      "/products/fosfolipid-sise.png",
+      "/products/fosfolipid-kutu.png",
+    ],
     shortDesc: "Beyin hücresi zarlarını güçlendiren fosfolipid kompleksi ile bilişsel performansı, hafıza ve öğrenme kapasitesini destekler. 4 yaş ve üzeri için uygundur.",
     benefits: [
       "Beyin hücresi zarlarını güçlendirir",

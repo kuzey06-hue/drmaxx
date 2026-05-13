@@ -1,8 +1,8 @@
-import { NextRequest, NextResponse } from "next/server";
+﻿import { NextRequest, NextResponse } from "next/server";
 import { readCmsContent, writeCmsContent } from "@/lib/cmsStore";
 
 const CMS_KEY = "marketplace_settings";
-const MASK_RE = /^(\*+|•+|â€¢+)$/;
+const MASK_RE = /^(\*+|•+)$/;
 
 async function read() {
   return readCmsContent<Record<string, Record<string, unknown>>>(CMS_KEY, {});
@@ -45,3 +45,4 @@ export async function PUT(req: NextRequest) {
   await write(data);
   return NextResponse.json({ ok: true });
 }
+

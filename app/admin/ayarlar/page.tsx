@@ -34,14 +34,14 @@ function BankForm({
   return (
     <div className="grid grid-cols-2 gap-3">
       <div className="space-y-1">
-        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Banka AdÄ± *</label>
+        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Banka Adı *</label>
         <input value={value.banka} onChange={e => set("banka", e.target.value)}
-          placeholder="Ziraat BankasÄ±, Garanti, Ä°ÅŸ BankasÄ±..." className={bankInputCls} />
+          placeholder="Ziraat Bankası, Garanti, İş Bankası..." className={bankInputCls} />
       </div>
       <div className="space-y-1">
         <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Hesap Sahibi *</label>
         <input value={value.hesapSahibi} onChange={e => set("hesapSahibi", e.target.value)}
-          placeholder="DR MAXX Ä°laÃ§ San. Tic. A.Å." className={bankInputCls} />
+          placeholder="DR MAXX İlaç San. Tic. A.Ş." className={bankInputCls} />
       </div>
       <div className="col-span-2 space-y-1">
         <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">IBAN *</label>
@@ -49,9 +49,9 @@ function BankForm({
           placeholder="TR00 0000 0000 0000 0000 0000 00" className={bankInputCls} maxLength={32} />
       </div>
       <div className="space-y-1">
-        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Åube AdÄ± / Kodu</label>
+        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Şube Adı / Kodu</label>
         <input value={value.subeAdi ?? ""} onChange={e => set("subeAdi", e.target.value)}
-          placeholder="Merkez Åubesi / 1234" className={bankInputCls} />
+          placeholder="Merkez Şubesi / 1234" className={bankInputCls} />
       </div>
       <div className="space-y-1">
         <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Hesap No</label>
@@ -59,9 +59,9 @@ function BankForm({
           placeholder="12345678" className={bankInputCls} />
       </div>
       <div className="col-span-2 space-y-1">
-        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">AÃ§Ä±klama (opsiyonel)</label>
+        <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wide">Açıklama (opsiyonel)</label>
         <input value={value.aciklama ?? ""} onChange={e => set("aciklama", e.target.value)}
-          placeholder="Havale yaparken sipariÅŸ numaranÄ±zÄ± belirtin" className={bankInputCls} />
+          placeholder="Havale yaparken sipariş numaranızı belirtin" className={bankInputCls} />
       </div>
     </div>
   );
@@ -79,10 +79,10 @@ function IbanRow({ label, value }: { label: string; value: string }) {
 const TABS = [
   { id: "genel", label: "Genel", icon: Store },
   { id: "kargo", label: "Kargo", icon: Truck },
-  { id: "odeme", label: "Ã–deme", icon: CreditCard },
+  { id: "odeme", label: "Ödeme", icon: CreditCard },
   { id: "bildirim", label: "Bildirimler", icon: Bell },
-  { id: "guvenlik", label: "GÃ¼venlik", icon: Shield },
-  { id: "gorunum", label: "GÃ¶rÃ¼nÃ¼m", icon: Palette },
+  { id: "guvenlik", label: "Güvenlik", icon: Shield },
+  { id: "gorunum", label: "Görünüm", icon: Palette },
   { id: "seo", label: "SEO", icon: Globe },
 ];
 
@@ -217,18 +217,18 @@ export default function AyarlarPage() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [paymentMethods, setPaymentMethods] = useState([
-    { title: "Kredi / Banka KartÄ±", desc: "Visa, Mastercard, Troy", active: true },
-    { title: "Havale / EFT", desc: "Banka transferi ile Ã¶deme", active: true },
-    { title: "KapÄ±da Ã–deme", desc: "+15 â‚º hizmet bedeli", active: false },
-    { title: "Apple Pay / Google Pay", desc: "Dijital cÃ¼zdan Ã¶demeleri", active: false },
+    { title: "Kredi / Banka Kartı", desc: "Visa, Mastercard, Troy", active: true },
+    { title: "Havale / EFT", desc: "Banka transferi ile ödeme", active: true },
+    { title: "Kapıda Ödeme", desc: "+15 ₺ hizmet bedeli", active: false },
+    { title: "Apple Pay / Google Pay", desc: "Dijital cüzdan ödemeleri", active: false },
   ]);
   const togglePayment = (i: number) =>
     setPaymentMethods((prev) => prev.map((m, idx) => idx === i ? { ...m, active: !m.active } : m));
   const [shippingZones, setShippingZones] = useState([
-    { id: 1, region: "Ä°stanbul", cost: "0", free_limit: "500" },
+    { id: 1, region: "İstanbul", cost: "0", free_limit: "500" },
     { id: 2, region: "Ankara", cost: "29.90", free_limit: "500" },
-    { id: 3, region: "Ä°zmir", cost: "29.90", free_limit: "500" },
-    { id: 4, region: "DiÄŸer Ä°ller", cost: "39.90", free_limit: "750" },
+    { id: 3, region: "İzmir", cost: "29.90", free_limit: "500" },
+    { id: 4, region: "Diğer İller", cost: "39.90", free_limit: "750" },
   ]);
 
   const setToggle = (key: string) => (v: boolean) =>
@@ -280,7 +280,7 @@ export default function AyarlarPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-xl font-bold text-gray-900">Ayarlar</h1>
-          <p className="text-sm text-gray-400 mt-0.5">MaÄŸaza tercihlerinizi yÃ¶netin</p>
+          <p className="text-sm text-gray-400 mt-0.5">Mağaza tercihlerinizi yönetin</p>
         </div>
         <button
           onClick={handleSave}
@@ -325,68 +325,68 @@ export default function AyarlarPage() {
           className="flex-1 bg-white rounded-2xl border border-gray-100 shadow-sm p-6"
         >
 
-          {/* â”€â”€ GENEL â”€â”€ */}
+          {/* ── GENEL ── */}
           {activeTab === "genel" && (
             <div>
               <h2 className="text-base font-bold text-gray-900 mb-1">Genel Ayarlar</h2>
-              <p className="text-xs text-gray-400 mb-6">MaÄŸaza temel bilgileri</p>
+              <p className="text-xs text-gray-400 mb-6">Mağaza temel bilgileri</p>
 
-              <Field label="MaÄŸaza AdÄ±" hint="Sitenin baÅŸlÄ±k ve meta etiketlerinde gÃ¶rÃ¼nÃ¼r">
+              <Field label="Mağaza Adı" hint="Sitenin başlık ve meta etiketlerinde görünür">
                 <Input defaultValue="DR.MAXX" className="w-56" />
               </Field>
-              <Field label="MaÄŸaza Adresi (URL)" hint="Canonical URL iÃ§in kullanÄ±lÄ±r">
+              <Field label="Mağaza Adresi (URL)" hint="Canonical URL için kullanılır">
                 <Input defaultValue="https://drmaxx.com.tr" className="w-56" />
               </Field>
-              <Field label="Ä°letiÅŸim E-postasÄ±" hint="MÃ¼ÅŸteri bildirimleri bu adrese gÃ¶nderilir">
+              <Field label="İletişim E-postası" hint="Müşteri bildirimleri bu adrese gönderilir">
                 <Input defaultValue="info@drmaxx.com.tr" type="email" className="w-56" />
               </Field>
-              <Field label="Telefon" hint="Footer ve iletiÅŸim sayfasÄ±nda gÃ¶sterilir">
+              <Field label="Telefon" hint="Footer ve iletişim sayfasında gösterilir">
                 <Input defaultValue="0850 309 9489" className="w-44" />
               </Field>
-              <Field label="Para Birimi" hint="TÃ¼m fiyatlar bu birimde gÃ¶sterilir">
+              <Field label="Para Birimi" hint="Tüm fiyatlar bu birimde gösterilir">
                 <select className="h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
-                  <option>TRY â€” TÃ¼rk LirasÄ± (â‚º)</option>
-                  <option>USD â€” Amerikan DolarÄ± ($)</option>
-                  <option>EUR â€” Euro (â‚¬)</option>
+                  <option>TRY — Türk Lirası (₺)</option>
+                  <option>USD — Amerikan Doları ($)</option>
+                  <option>EUR — Euro (€)</option>
                 </select>
               </Field>
-              <Field label="BakÄ±m Modu" hint="Aktif edildiÄŸinde siteyi ziyaretÃ§ilere kapatÄ±r">
+              <Field label="Bakım Modu" hint="Aktif edildiğinde siteyi ziyaretçilere kapatır">
                 <Toggle checked={toggles.maintenance} onChange={setToggle("maintenance")} />
               </Field>
-              <Field label="MaÄŸaza Logosu" hint="PNG veya SVG, en az 200Ã—60px">
+              <Field label="Mağaza Logosu" hint="PNG veya SVG, en az 200×60px">
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl border border-dashed border-gray-300 text-sm text-gray-500 hover:border-orange-400 hover:text-orange-500 transition-all">
                   <Upload size={14} />
-                  Logo YÃ¼kle
+                  Logo Yükle
                 </button>
               </Field>
             </div>
           )}
 
-          {/* â”€â”€ KARGO â”€â”€ */}
+          {/* ── KARGO ── */}
           {activeTab === "kargo" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">Kargo AyarlarÄ±</h2>
-              <p className="text-xs text-gray-400 mb-6">Kargo bÃ¶lgeleri ve Ã¼cret yapÄ±sÄ±</p>
+              <h2 className="text-base font-bold text-gray-900 mb-1">Kargo Ayarları</h2>
+              <p className="text-xs text-gray-400 mb-6">Kargo bölgeleri ve ücret yapısı</p>
 
-              <Field label="Ãœcretsiz Kargo" hint="Belirli tutarÄ±n Ã¼stÃ¼nde Ã¼cretsiz kargo">
+              <Field label="Ücretsiz Kargo" hint="Belirli tutarın üstünde ücretsiz kargo">
                 <Toggle checked={toggles.freeShipping} onChange={setToggle("freeShipping")} />
               </Field>
 
               <div className="mt-6">
                 <div className="flex items-center justify-between mb-3">
-                  <p className="text-sm font-semibold text-gray-800">Kargo BÃ¶lgeleri</p>
+                  <p className="text-sm font-semibold text-gray-800">Kargo Bölgeleri</p>
                   <button
-                    onClick={() => setShippingZones((z) => [...z, { id: Date.now(), region: "Yeni BÃ¶lge", cost: "0", free_limit: "500" }])}
+                    onClick={() => setShippingZones((z) => [...z, { id: Date.now(), region: "Yeni Bölge", cost: "0", free_limit: "500" }])}
                     className="flex items-center gap-1.5 text-xs font-semibold text-orange-500 hover:text-orange-600 transition-colors"
                   >
-                    <Plus size={12} /> BÃ¶lge Ekle
+                    <Plus size={12} /> Bölge Ekle
                   </button>
                 </div>
                 <div className="rounded-xl border border-gray-100 overflow-hidden">
                   <table className="w-full">
                     <thead className="bg-gray-50">
                       <tr>
-                        {["BÃ¶lge", "Kargo Ãœcreti (â‚º)", "Ãœcretsiz EÅŸiÄŸi (â‚º)", ""].map((h) => (
+                        {["Bölge", "Kargo Ücreti (₺)", "Ücretsiz Eşiği (₺)", ""].map((h) => (
                           <th key={h} className="px-4 py-2.5 text-left text-xs font-bold text-gray-400 uppercase">{h}</th>
                         ))}
                       </tr>
@@ -415,9 +415,9 @@ export default function AyarlarPage() {
                 </div>
               </div>
 
-              <Field label="Kargo Entegrasyonu" hint="KullanÄ±lan kargo firmasÄ±">
+              <Field label="Kargo Entegrasyonu" hint="Kullanılan kargo firması">
                 <select className="h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
-                  <option>YurtiÃ§i Kargo</option>
+                  <option>Yurtiçi Kargo</option>
                   <option>MNG Kargo</option>
                   <option>Aras Kargo</option>
                   <option>PTT Kargo</option>
@@ -427,11 +427,11 @@ export default function AyarlarPage() {
             </div>
           )}
 
-          {/* â”€â”€ Ã–DEME â”€â”€ */}
+          {/* ── ÖDEME ── */}
           {activeTab === "odeme" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">Ã–deme YÃ¶ntemleri</h2>
-              <p className="text-xs text-gray-400 mb-6">Kabul edilen Ã¶deme yÃ¶ntemleri ve entegrasyonlar</p>
+              <h2 className="text-base font-bold text-gray-900 mb-1">Ödeme Yöntemleri</h2>
+              <p className="text-xs text-gray-400 mb-6">Kabul edilen ödeme yöntemleri ve entegrasyonlar</p>
 
               {paymentMethods.map(({ title, desc, active }, i) => (
                 <div key={i} className="flex items-center justify-between py-4 border-b border-gray-100 last:border-0">
@@ -457,7 +457,7 @@ export default function AyarlarPage() {
                     </div>
                     <div>
                       <p className="text-sm font-bold text-gray-800">PayTR Entegrasyonu</p>
-                      <p className="text-[10px] text-gray-400">paytr.com â†’ MaÄŸaza AyarlarÄ± â†’ API Bilgileri</p>
+                      <p className="text-[10px] text-gray-400">paytr.com → Mağaza Ayarları → API Bilgileri</p>
                     </div>
                   </div>
                   <Toggle checked={toggles.paytrActive ?? false} onChange={setToggle("paytrActive")} />
@@ -465,9 +465,9 @@ export default function AyarlarPage() {
 
                 <div className="p-4 bg-white space-y-3">
                   {[
-                    { label: "Merchant ID",   placeholder: "1234567",          hint: "MaÄŸaza numaranÄ±z" },
-                    { label: "Merchant Key",  placeholder: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢", hint: "API gÃ¼venlik anahtarÄ±" },
-                    { label: "Merchant Salt", placeholder: "â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢", hint: "API tuz deÄŸeri" },
+                    { label: "Merchant ID",   placeholder: "1234567",          hint: "Mağaza numaranız" },
+                    { label: "Merchant Key",  placeholder: "••••••••••••••••", hint: "API güvenlik anahtarı" },
+                    { label: "Merchant Salt", placeholder: "••••••••••••••••", hint: "API tuz değeri" },
                   ].map(({ label, placeholder, hint }) => (
                     <div key={label} className="flex items-center gap-3">
                       <div className="w-32 flex-shrink-0">
@@ -488,7 +488,7 @@ export default function AyarlarPage() {
                       <p className="text-xs font-semibold text-gray-700 mb-1">Mod</p>
                       <select className="w-full h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
                         <option value="1">Test Modu</option>
-                        <option value="0">CanlÄ± Mod</option>
+                        <option value="0">Canlı Mod</option>
                       </select>
                     </div>
                     <div>
@@ -504,7 +504,7 @@ export default function AyarlarPage() {
                     <div>
                       <p className="text-xs font-semibold text-gray-700 mb-1">Dil</p>
                       <select className="w-full h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
-                        <option value="tr">TÃ¼rkÃ§e</option>
+                        <option value="tr">Türkçe</option>
                         <option value="en">English</option>
                       </select>
                     </div>
@@ -519,14 +519,14 @@ export default function AyarlarPage() {
                     <p className="text-xs font-mono text-blue-700 break-all">
                       {typeof window !== "undefined" ? window.location.origin : "https://siteniz.com"}/api/paytr/callback
                     </p>
-                    <p className="text-[10px] text-blue-400 mt-1">Bu URL&apos;yi PayTR maÄŸaza ayarlarÄ±na girin.</p>
+                    <p className="text-[10px] text-blue-400 mt-1">Bu URL&apos;yi PayTR mağaza ayarlarına girin.</p>
                   </div>
                 </div>
               </div>
 
-              {/* â”€â”€ Havale / EFT Banka Bilgileri â”€â”€ */}
+              {/* ── Havale / EFT Banka Bilgileri ── */}
               <div className="mt-6 rounded-xl border border-gray-200 overflow-hidden">
-                {/* Panel baÅŸlÄ±ÄŸÄ± */}
+                {/* Panel başlığı */}
                 <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-200">
                   <div className="flex items-center gap-2.5">
                     <div className="h-7 w-7 rounded-lg bg-gray-700 flex items-center justify-center">
@@ -534,7 +534,7 @@ export default function AyarlarPage() {
                     </div>
                     <div>
                       <p className="text-sm font-bold text-gray-800">Havale / EFT Banka Bilgileri</p>
-                      <p className="text-[10px] text-gray-400">MÃ¼ÅŸteriye gÃ¶sterilecek hesap bilgileri</p>
+                      <p className="text-[10px] text-gray-400">Müşteriye gösterilecek hesap bilgileri</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -547,19 +547,19 @@ export default function AyarlarPage() {
                 <div className="p-4 bg-white space-y-4">
                   {bankaLoading ? (
                     <div className="flex items-center justify-center py-6 text-gray-400 text-sm gap-2">
-                      <RefreshCw size={14} className="animate-spin" /> YÃ¼kleniyor...
+                      <RefreshCw size={14} className="animate-spin" /> Yükleniyor...
                     </div>
                   ) : (
                     <>
-                      {/* KayÄ±tlÄ± hesaplar */}
+                      {/* Kayıtlı hesaplar */}
                       {bankAccounts.length > 0 && (
                         <div className="space-y-3">
                           {bankAccounts.map(acc => (
                             <div key={acc.id}>
                               {editingAccount?.id === acc.id ? (
-                                /* DÃ¼zenleme formu */
+                                /* Düzenleme formu */
                                 <div className="rounded-xl border border-orange-200 bg-orange-50/40 p-4 space-y-3">
-                                  <p className="text-xs font-bold text-orange-600 uppercase tracking-wide">HesabÄ± DÃ¼zenle</p>
+                                  <p className="text-xs font-bold text-orange-600 uppercase tracking-wide">Hesabı Düzenle</p>
                                   <BankForm
                                     value={editingAccount}
                                     onChange={v => setEditingAccount(v as BankAccount)}
@@ -571,12 +571,12 @@ export default function AyarlarPage() {
                                     </button>
                                     <button onClick={() => setEditingAccount(null)}
                                       className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-500 hover:bg-gray-100 transition-colors">
-                                      Ä°ptal
+                                      İptal
                                     </button>
                                   </div>
                                 </div>
                               ) : (
-                                /* Hesap kartÄ± */
+                                /* Hesap kartı */
                                 <div className="rounded-xl border border-gray-100 bg-gray-50 p-4">
                                   <div className="flex items-start justify-between gap-3">
                                     <div className="flex items-center gap-3 min-w-0">
@@ -602,7 +602,7 @@ export default function AyarlarPage() {
 
                                   <div className="mt-3 grid grid-cols-1 gap-1.5">
                                     <IbanRow label="IBAN" value={acc.iban} />
-                                    {acc.subeAdi && <IbanRow label="Åube" value={acc.subeAdi} />}
+                                    {acc.subeAdi && <IbanRow label="Şube" value={acc.subeAdi} />}
                                     {acc.hesapNo && <IbanRow label="Hesap No" value={acc.hesapNo} />}
                                     {acc.aciklama && (
                                       <p className="text-[11px] text-gray-400 italic mt-1">{acc.aciklama}</p>
@@ -618,30 +618,30 @@ export default function AyarlarPage() {
                       {/* Yeni hesap formu */}
                       {newAccountForm !== null ? (
                         <div className="rounded-xl border border-blue-200 bg-blue-50/40 p-4 space-y-3">
-                          <p className="text-xs font-bold text-blue-600 uppercase tracking-wide">Yeni Banka HesabÄ±</p>
+                          <p className="text-xs font-bold text-blue-600 uppercase tracking-wide">Yeni Banka Hesabı</p>
                           <BankForm value={newAccountForm} onChange={setNewAccountForm} />
                           <div className="flex gap-2 pt-1">
                             <button onClick={addAccount}
                               disabled={!newAccountForm.banka || !newAccountForm.iban}
                               className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white text-xs font-semibold transition-colors">
-                              <Plus size={12} /> HesabÄ± Ekle
+                              <Plus size={12} /> Hesabı Ekle
                             </button>
                             <button onClick={() => setNewAccountForm(null)}
                               className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-500 hover:bg-gray-100 transition-colors">
-                              Ä°ptal
+                              İptal
                             </button>
                           </div>
                         </div>
                       ) : (
                         <button onClick={() => setNewAccountForm({ ...EMPTY_ACCOUNT })}
                           className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-dashed border-gray-200 text-sm text-gray-400 hover:border-orange-300 hover:text-orange-500 hover:bg-orange-50/40 transition-all font-medium">
-                          <Plus size={15} /> Banka HesabÄ± Ekle
+                          <Plus size={15} /> Banka Hesabı Ekle
                         </button>
                       )}
 
                       {bankAccounts.length === 0 && newAccountForm === null && (
                         <p className="text-center text-xs text-gray-400 py-2">
-                          HenÃ¼z hesap eklenmedi. YukarÄ±daki butona tÄ±klayÄ±n.
+                          Henüz hesap eklenmedi. Yukarıdaki butona tıklayın.
                         </p>
                       )}
                     </>
@@ -651,35 +651,35 @@ export default function AyarlarPage() {
             </div>
           )}
 
-          {/* â”€â”€ BÄ°LDÄ°RÄ°MLER â”€â”€ */}
+          {/* ── BİLDİRİMLER ── */}
           {activeTab === "bildirim" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">Bildirim AyarlarÄ±</h2>
-              <p className="text-xs text-gray-400 mb-6">Hangi olaylar iÃ§in bildirim alacaÄŸÄ±nÄ±zÄ± seÃ§in</p>
+              <h2 className="text-base font-bold text-gray-900 mb-1">Bildirim Ayarları</h2>
+              <p className="text-xs text-gray-400 mb-6">Hangi olaylar için bildirim alacağınızı seçin</p>
 
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Bildirim KanallarÄ±</p>
-              <Field label="E-posta Bildirimleri" hint="SipariÅŸ ve mÃ¼ÅŸteri bildirimleri e-posta ile">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Bildirim Kanalları</p>
+              <Field label="E-posta Bildirimleri" hint="Sipariş ve müşteri bildirimleri e-posta ile">
                 <Toggle checked={toggles.emailNotif} onChange={setToggle("emailNotif")} />
               </Field>
-              <Field label="SMS Bildirimleri" hint="Kritik sipariÅŸ gÃ¼ncellemeleri iÃ§in SMS">
+              <Field label="SMS Bildirimleri" hint="Kritik sipariş güncellemeleri için SMS">
                 <Toggle checked={toggles.smsNotif} onChange={setToggle("smsNotif")} />
               </Field>
 
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-6 mb-3">Bildirim TÃ¼rleri</p>
-              <Field label="Yeni SipariÅŸ" hint="Her yeni sipariÅŸ oluÅŸtuÄŸunda bildir">
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-6 mb-3">Bildirim Türleri</p>
+              <Field label="Yeni Sipariş" hint="Her yeni sipariş oluştuğunda bildir">
                 <Toggle checked={toggles.orderNotif} onChange={setToggle("orderNotif")} />
               </Field>
-              <Field label="Yeni Yorum" hint="ÃœrÃ¼n deÄŸerlendirmeleri iÃ§in bildir">
+              <Field label="Yeni Yorum" hint="Ürün değerlendirmeleri için bildir">
                 <Toggle checked={toggles.reviewNotif} onChange={setToggle("reviewNotif")} />
               </Field>
-              <Field label="DÃ¼ÅŸÃ¼k Stok UyarÄ±sÄ±" hint="Stok 10'un altÄ±na dÃ¼ÅŸtÃ¼ÄŸÃ¼nde bildir">
+              <Field label="Düşük Stok Uyarısı" hint="Stok 10'un altına düştüğünde bildir">
                 <Toggle checked={toggles.lowStockNotif} onChange={setToggle("lowStockNotif")} />
               </Field>
-              <Field label="BaÅŸarÄ±sÄ±z Ã–deme" hint="Ã–deme baÅŸarÄ±sÄ±z olduÄŸunda bildir">
+              <Field label="Başarısız Ödeme" hint="Ödeme başarısız olduğunda bildir">
                 <Toggle checked={toggles.failedPaymentNotif} onChange={setToggle("failedPaymentNotif")} />
               </Field>
 
-              <Field label="Bildirim E-postasÄ±" hint="Bildirimlerin gÃ¶nderileceÄŸi adres">
+              <Field label="Bildirim E-postası" hint="Bildirimlerin gönderileceği adres">
                 <input
                   value={notificationEmail}
                   onChange={(e) => setNotificationEmail(e.target.value)}
@@ -687,7 +687,7 @@ export default function AyarlarPage() {
                   className="h-9 w-56 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 placeholder:text-gray-400 focus:border-orange-400 focus:bg-white focus:outline-none transition-all"
                 />
               </Field>
-              <Field label="Sipariş Mail Alıcıları" hint="Yeni sipariş geldiğinde mail gidecek 2 adres">
+              <Field label="Siparis Mail Alicilari" hint="Yeni siparis geldiginde mail gidecek 2 adres">
                 <div className="space-y-2">
                   {[0, 1].map((index) => (
                     <input
@@ -708,58 +708,58 @@ export default function AyarlarPage() {
             </div>
           )}
 
-          {/* â”€â”€ GÃœVENLÄ°K â”€â”€ */}
+          {/* ── GÜVENLİK ── */}
           {activeTab === "guvenlik" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">GÃ¼venlik</h2>
-              <p className="text-xs text-gray-400 mb-6">Hesap ve eriÅŸim gÃ¼venliÄŸi</p>
+              <h2 className="text-base font-bold text-gray-900 mb-1">Güvenlik</h2>
+              <p className="text-xs text-gray-400 mb-6">Hesap ve erişim güvenliği</p>
 
-              <Field label="Ä°ki FaktÃ¶rlÃ¼ DoÄŸrulama" hint="GiriÅŸ yaparken ek doÄŸrulama kodu iste">
+              <Field label="İki Faktörlü Doğrulama" hint="Giriş yaparken ek doğrulama kodu iste">
                 <Toggle checked={toggles.twoFactor} onChange={setToggle("twoFactor")} />
               </Field>
-              <Field label="Aktivite GÃ¼nlÃ¼ÄŸÃ¼" hint="Admin panelindeki tÃ¼m iÅŸlemleri kaydet">
+              <Field label="Aktivite Günlüğü" hint="Admin panelindeki tüm işlemleri kaydet">
                 <Toggle checked={toggles.activityLog} onChange={setToggle("activityLog")} />
               </Field>
-              <Field label="Oturum SÃ¼resi" hint="Hareketsizlik durumunda otomatik Ã§Ä±kÄ±ÅŸ">
+              <Field label="Oturum Süresi" hint="Hareketsizlik durumunda otomatik çıkış">
                 <select className="h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
                   <option>30 dakika</option>
                   <option>1 saat</option>
                   <option>4 saat</option>
                   <option>8 saat</option>
-                  <option>HiÃ§bir zaman</option>
+                  <option>Hiçbir zaman</option>
                 </select>
               </Field>
 
               <div className="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Åifre DeÄŸiÅŸtir</p>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Şifre Değiştir</p>
                 <div className="space-y-3">
-                  {["Mevcut Åifre", "Yeni Åifre", "Yeni Åifre (Tekrar)"].map((label) => (
+                  {["Mevcut Şifre", "Yeni Şifre", "Yeni Şifre (Tekrar)"].map((label) => (
                     <div key={label} className="flex items-center gap-3">
                       <span className="text-xs text-gray-500 w-36">{label}</span>
-                      <Input type="password" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" className="flex-1" />
+                      <Input type="password" placeholder="••••••••" className="flex-1" />
                     </div>
                   ))}
                   <button className="mt-2 px-4 py-2 rounded-xl bg-gray-800 text-white text-xs font-semibold hover:bg-gray-900 transition-colors">
-                    Åifreyi GÃ¼ncelle
+                    Şifreyi Güncelle
                   </button>
                 </div>
               </div>
 
               <div className="mt-6 p-4 rounded-xl bg-red-50 border border-red-100">
-                <p className="text-xs font-bold text-red-500 mb-1">Tehlikeli BÃ¶lge</p>
-                <p className="text-xs text-red-400 mb-3">Bu iÅŸlemler geri alÄ±namaz.</p>
+                <p className="text-xs font-bold text-red-500 mb-1">Tehlikeli Bölge</p>
+                <p className="text-xs text-red-400 mb-3">Bu işlemler geri alınamaz.</p>
                 <button className="px-4 py-2 rounded-xl bg-red-500 text-white text-xs font-semibold hover:bg-red-600 transition-colors">
-                  TÃ¼m Verileri SÄ±fÄ±rla
+                  Tüm Verileri Sıfırla
                 </button>
               </div>
             </div>
           )}
 
-          {/* â”€â”€ GÃ–RÃœNÃœM â”€â”€ */}
+          {/* ── GÖRÜNÜM ── */}
           {activeTab === "gorunum" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">GÃ¶rÃ¼nÃ¼m</h2>
-              <p className="text-xs text-gray-400 mb-6">MaÄŸaza renk ve tema tercihleri</p>
+              <h2 className="text-base font-bold text-gray-900 mb-1">Görünüm</h2>
+              <p className="text-xs text-gray-400 mb-6">Mağaza renk ve tema tercihleri</p>
 
               <Field label="Birincil Renk" hint="Buton ve vurgu rengi">
                 <div className="flex items-center gap-3">
@@ -767,25 +767,25 @@ export default function AyarlarPage() {
                   <Input defaultValue="#F97316" className="w-28" />
                 </div>
               </Field>
-              <Field label="Ä°kincil Renk" hint="BaÅŸlÄ±k ve koyu alanlar">
+              <Field label="İkincil Renk" hint="Başlık ve koyu alanlar">
                 <div className="flex items-center gap-3">
                   <input type="color" defaultValue="#0A0F1E" className="h-9 w-16 rounded-xl border border-gray-200 cursor-pointer" />
                   <Input defaultValue="#0A0F1E" className="w-28" />
                 </div>
               </Field>
-              <Field label="Banner GÃ¶rseli" hint="Ana sayfa hero alanÄ±, 1920Ã—700px">
+              <Field label="Banner Görseli" hint="Ana sayfa hero alanı, 1920×700px">
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl border border-dashed border-gray-300 text-sm text-gray-500 hover:border-orange-400 hover:text-orange-500 transition-all">
-                  <Upload size={14} /> GÃ¶rsel YÃ¼kle
+                  <Upload size={14} /> Görsel Yükle
                 </button>
               </Field>
-              <Field label="Favicon" hint="TarayÄ±cÄ± sekmesinde gÃ¶rÃ¼nen ikon, 32Ã—32px">
+              <Field label="Favicon" hint="Tarayıcı sekmesinde görünen ikon, 32×32px">
                 <button className="flex items-center gap-2 px-4 py-2 rounded-xl border border-dashed border-gray-300 text-sm text-gray-500 hover:border-orange-400 hover:text-orange-500 transition-all">
-                  <Upload size={14} /> Favicon YÃ¼kle
+                  <Upload size={14} /> Favicon Yükle
                 </button>
               </Field>
-              <Field label="ÃœrÃ¼n SayfasÄ± DÃ¼zeni" hint="ÃœrÃ¼n detay sayfasÄ± gÃ¶rÃ¼nÃ¼mÃ¼">
+              <Field label="Ürün Sayfası Düzeni" hint="Ürün detay sayfası görünümü">
                 <select className="h-9 rounded-xl border border-gray-200 bg-gray-50 px-3 text-sm text-gray-800 focus:border-orange-400 focus:outline-none">
-                  <option>GeniÅŸ (VarsayÄ±lan)</option>
+                  <option>Geniş (Varsayılan)</option>
                   <option>Kompakt</option>
                   <option>Galeri</option>
                 </select>
@@ -793,38 +793,38 @@ export default function AyarlarPage() {
             </div>
           )}
 
-          {/* â”€â”€ SEO â”€â”€ */}
+          {/* ── SEO ── */}
           {activeTab === "seo" && (
             <div>
-              <h2 className="text-base font-bold text-gray-900 mb-1">SEO AyarlarÄ±</h2>
+              <h2 className="text-base font-bold text-gray-900 mb-1">SEO Ayarları</h2>
               <p className="text-xs text-gray-400 mb-6">Arama motoru optimizasyonu</p>
 
-              <Field label="Meta BaÅŸlÄ±k" hint="TarayÄ±cÄ± sekmesi ve arama sonuÃ§larÄ±nda gÃ¶rÃ¼nÃ¼r">
-                <Input defaultValue="DR.MAXX | Premium Takviye MarkasÄ±" className="w-72" />
+              <Field label="Meta Başlık" hint="Tarayıcı sekmesi ve arama sonuçlarında görünür">
+                <Input defaultValue="DR.MAXX | Premium Takviye Markası" className="w-72" />
               </Field>
-              <Field label="Meta AÃ§Ä±klama" hint="Arama sonuÃ§larÄ±nda gÃ¶sterilen kÄ±sa aÃ§Ä±klama">
+              <Field label="Meta Açıklama" hint="Arama sonuçlarında gösterilen kısa açıklama">
                 <textarea
-                  defaultValue="Bilimsel formÃ¼llerle geliÅŸtirilmiÅŸ premium besin takviyeleri. Beyin saÄŸlÄ±ÄŸÄ±, omega-3 ve daha fazlasÄ±."
+                  defaultValue="Bilimsel formüllerle geliştirilmiş premium besin takviyeleri. Beyin sağlığı, omega-3 ve daha fazlası."
                   rows={3}
                   className="w-72 rounded-xl border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-800 focus:border-orange-400 focus:bg-white focus:outline-none resize-none transition-all"
                 />
               </Field>
-              <Field label="Google Analytics ID" hint="G-XXXXXXXXXX formatÄ±nda">
+              <Field label="Google Analytics ID" hint="G-XXXXXXXXXX formatında">
                 <Input placeholder="G-XXXXXXXXXX" className="w-44" />
               </Field>
               <Field label="Meta Pixel ID" hint="Facebook reklam takibi">
                 <Input placeholder="1234567890" className="w-44" />
               </Field>
-              <Field label="Google Analytics" hint="ZiyaretÃ§i takibi iÃ§in">
+              <Field label="Google Analytics" hint="Ziyaretçi takibi için">
                 <Toggle checked={toggles.googleAnalytics} onChange={setToggle("googleAnalytics")} />
               </Field>
               <Field label="Meta Pixel" hint="Facebook/Instagram reklam takibi">
                 <Toggle checked={toggles.metaPixel} onChange={setToggle("metaPixel")} />
               </Field>
-              <Field label="YapÄ±landÄ±rÄ±lmÄ±ÅŸ Veri (JSON-LD)" hint="ÃœrÃ¼nler iÃ§in rich snippet desteÄŸi">
+              <Field label="Yapılandırılmış Veri (JSON-LD)" hint="Ürünler için rich snippet desteği">
                 <Toggle checked={toggles.richSnippets} onChange={setToggle("richSnippets")} />
               </Field>
-              <Field label="Sitemap Otomatik GÃ¼ncelleme" hint="Yeni Ã¼rÃ¼n eklendiÄŸinde sitemap.xml gÃ¼ncellenir">
+              <Field label="Sitemap Otomatik Güncelleme" hint="Yeni ürün eklendiğinde sitemap.xml güncellenir">
                 <Toggle checked={toggles.sitemap} onChange={setToggle("sitemap")} />
               </Field>
             </div>
@@ -835,3 +835,5 @@ export default function AyarlarPage() {
     </div>
   );
 }
+
+

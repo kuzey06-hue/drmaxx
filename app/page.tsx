@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { TrustBar } from "@/components/sections/TrustBar";
 import { ProductFinder } from "@/components/sections/ProductFinder";
 import { PopularProducts } from "@/components/sections/PopularProducts";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -20,7 +19,6 @@ export default async function Home() {
     <main>
       <Navbar />
       <Hero />
-      <TrustBar />
       <PopularProducts products={products} />
       <ProductFinder />
       <Testimonials />
