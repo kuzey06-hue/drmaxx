@@ -45,7 +45,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="relative w-full h-[clamp(500px,70vw,900px)] transition-colors duration-700" style={{ backgroundColor: slides[activeSlide]?.bgColor || "#fefefe" }}>
+      <div className="relative w-full pl-32 transition-colors duration-700" style={{ height: "900px", backgroundColor: slides[activeSlide]?.bgColor || "#fefefe" }}>
         {slides.map((slide, index) => (
           <Image
             key={`${slide.src}-${index}`}
