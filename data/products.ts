@@ -101,7 +101,7 @@ export const products: Product[] = [
     category: "Antioksidan",
     description: "Resveratrol, Quercetin, Laktoferrin, Vitamin C, Çinko Pikolinat, Vitamin D3 içeren sıvı takviye edici gıda.",
     color: "#7C3AED",
-    image: "/products/resveratrol-advance-complex.jpg?v=2",
+    image: "/products/resveratrol-sise.png",
     gallery: [
       "/products/resveratrol-advance-complex.jpg?v=2",
       "/products/resveratrol.png",
