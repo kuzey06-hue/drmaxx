@@ -54,7 +54,7 @@ export function Hero() {
             fill
             priority={index === 0}
             sizes="100vw"
-            className={`object-cover object-center transition-opacity duration-700 ${
+            className={`object-cover object-top transition-opacity duration-700 ${
               index === activeSlide ? "opacity-100" : "opacity-0"
             }`}
             onTouchStart={(e) => handleTouchStart(e.touches[0].clientX)}
