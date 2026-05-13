@@ -54,9 +54,10 @@ export const products: Product[] = [
     category: "Nörobilim",
     description: "Sitikolin, Omega-3 (Balık Yağı), Fosfatidilserin, Koenzim Q10, B Vitamini Kompleksi, Metilkobalamin B12",
     color: "#1D4ED8",
-    image: "/products/sitikolin-plus.jpg?v=2",
+    image: "/products/sitikolin-sise.png",
     gallery: [
       "/products/sitikolin-plus.jpg?v=2",
+      "/products/sitikolin-sise.png",
       "/products/stikolin-.png",
       "/products/sitikolin-kutu.png",
     ],
@@ -173,7 +174,7 @@ export const products: Product[] = [
     category: "Beyin Sağlığı",
     description: "Fosfolipidler, Kril Yağı (Omega-3, EPA, DHA, Astaksantin), Keten Tohumu Yağı, Magnezyum L-Treonat ve Vitamin B6 içeren sıvı takviye edici gıda.",
     color: "#0891B2",
-    image: "/products/phospholipid-complex.jpg?v=2",
+    image: "/products/fosfolipid-sise.png",
     gallery: [
       "/products/phospholipid-complex.jpg?v=2",
       "/products/fosfolipid.png",
