@@ -54,9 +54,9 @@ export const products: Product[] = [
     category: "Nörobilim",
     description: "Sitikolin, Omega-3 (Balık Yağı), Fosfatidilserin, Koenzim Q10, B Vitamini Kompleksi, Metilkobalamin B12",
     color: "#1D4ED8",
-    image: "/products/sitikolin-sise.png",
+    image: "/products/stikolin-plus.png",
     gallery: [
-      "/products/sitikolin-plus.jpg?v=2",
+      "/products/stikolin-plus.png",
       "/products/sitikolin-sise.png",
       "/products/stikolin-.png",
       "/products/sitikolin-kutu.png",
