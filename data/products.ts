@@ -259,7 +259,7 @@ export const products: Product[] = [
     category: "Omega",
     description: "Balık Yağı (Omega-3, EPA, DHA), Fosfatidilserin, Sitikolin, Koenzim Q10 ve B Vitamini Kompleksi içeren yumuşak kapsül takviye edici gıda.",
     color: "#D97706",
-    image: "/products/omega-3.jpg?v=2",
+    image: "/products/stikolin-plus.png",
     shortDesc: "Balık yağı, fosfatidilserin ve sitikolin kombinasyonu ile beyin, kalp ve sinir sistemi sağlığını bütünsel olarak destekleyen ileri formül.",
     benefits: [
       "Kalp-damar sağlığını destekler",
