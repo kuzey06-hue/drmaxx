@@ -261,7 +261,6 @@ export const products: Product[] = [
     color: "#D97706",
     image: "/products/omega-3.png",
     gallery: [
-      "/products/omega-3.png",
       "/products/sitikolin-plus.png",
     ],
     shortDesc: "Balık yağı, fosfatidilserin ve sitikolin kombinasyonu ile beyin, kalp ve sinir sistemi sağlığını bütünsel olarak destekleyen ileri formül.",
