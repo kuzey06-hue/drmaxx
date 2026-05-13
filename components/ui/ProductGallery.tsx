@@ -22,7 +22,7 @@ export function ProductGallery({ product, discount }: Props) {
     <div className="flex flex-col gap-4">
       {/* Ana görsel */}
       <div
-        className="relative rounded-3xl overflow-hidden flex items-center justify-center aspect-video max-w-md"
+        className="relative rounded-3xl overflow-hidden flex items-center justify-center aspect-square max-w-2xl w-full"
         style={{
           background: `linear-gradient(135deg, ${product.color}12 0%, ${product.color}25 100%)`,
         }}
